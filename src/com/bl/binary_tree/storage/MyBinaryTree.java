@@ -15,4 +15,13 @@ public class MyBinaryTree<K extends Comparable<K>> {
         else current.right = addRecursively(current.right, key);
         return current;
     }
+
+    public int getSize() {
+        return this.getSizeRecursively(root);
+    }
+
+    private int getSizeRecursively(MyBinaryNode<K> current) {
+        return current == null ? 0 : 1 + this.getSizeRecursively(current.left) +
+                getSizeRecursively(current.left);
+    }
 }
